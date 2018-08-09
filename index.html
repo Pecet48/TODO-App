@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TODO - Arkadiusz Cacko</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+</head>
+<body>
+    <header class="header-alert">
+
+    </header>
+    <main class="container">
+        <section class="form-left-widget">
+            <h2><i class="fas fa-plus"></i> New item</h2>
+            <button id="button-add">Add</button>
+            <input type="text" id="title" placeholder="Tytuł">
+            <textarea id="description" placeholder="Opis"></textarea>
+            <button id="button-clear">Clear</button>
+            <button id="button-remove">Remove</button>
+        </section>
+        <section class="list-right-widget">
+            <h2 class="h2-item-list"><i class="fas fa-clipboard-list"></i> All items</h2>
+            <div id="list-content">
+            </div>
+        </section>
+    </section>
+
+    <script>
+        var addButton = document.getElementById('button-add');
+        var clearButton = document.getElementById('button-clear');
+        var removeButton = document.getElementById('button-remove');
+        var listItem = document.getElementById("list-content");
+        function Item(title,description) {
+            this.title = title;
+            this.description = description;
+        }
+        var arrayList = [];
+        var newItem;
+
+        function createList() {
+            while ( listItem.firstChild ) listItem.removeChild( listItem.firstChild );
+            for(var ar in arrayList) {
+                var row = document.createElement("div");
+                row.className = 'row';
+                row.innerHTML = "<h3>" + arrayList[ar].title + "</h3>" + arrayList[ar].description;
+
+                listItem.appendChild(row);
+            }
+        }
+
+        function addItem(title,description) {
+                newItem = new Item(title,description);
+                arrayList.push(newItem);
+                createList();
+        }
+
+        function checkItem() {
+            var title = document.getElementById('title').value;
+            var description = document.getElementById('description').value;
+
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    if(xhttp.responseText != true) {
+                        alert(xhttp.responseText);
+                    } else {
+                        addItem(title,description);
+                    }
+                }
+            };
+            xhttp.open("GET", "php/check.php?title=" + title + "&description="+ description, true);
+            xhttp.send();
+        }
+
+        function removeItem() {
+            arrayList.pop();
+            createList();
+        }
+
+        function clearItem() {
+            arrayList = [];
+            createList();
+        }
+
+        addButton.addEventListener('click', checkItem);
+        clearButton.addEventListener('click', clearItem);
+        removeButton.addEventListener('click', removeItem);
+    </script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+html {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+body {
+    background: linear-gradient(45deg, rgba(2,0,36,1) 9%, rgba(145,0,255,1) 49%, rgba(214,0,255,1) 80%) fixed;
+}
+
+.header-alert {
+    width: 1000px;
+    min-height: 100px;
+    margin: auto;
+}
+
+.container {
+    width: 1000px;
+    height: auto;
+    margin: auto;
+}
+
+.form-left-widget {
+    width: 400px;
+    height: auto;
+    box-sizing: border-box;
+    padding: 25px;
+    background-color: #EBEBEB;
+    box-shadow: 0 0 100px black;
+    color: gray;
+    font-family: sans-serif; 
+    font-size: 15px;
+    position: fixed;
+}
+
+#title {
+    width: 350px;
+    height: auto;
+    padding: 10px;
+    font-size: 15px;
+    color: gray;
+    border: none;
+    border-bottom: 1px solid rgba(145,0,255,1);
+    background-color: transparent;
+    box-sizing: border-box;
+}
+
+#description {
+    width: 350px;
+    height: 250px;
+    padding: 10px;
+    margin-top: 25px;
+    font-size: 15px;
+    color: gray;
+    background-color: #D1D1D1;
+    box-sizing: border-box;
+    resize: none;
+}
+
+.fas {
+    color: rgba(145,0,255,1);
+}
+
+h2 {
+    width: 250px;
+    float: left;
+}
+
+#button-add {
+    width: 75px;
+    height: auto;
+    background-color: darkslateblue;
+    border: none;
+    border-radius: 10px;
+    color: #FFF;
+    font-size: 15px;
+    padding: 10px;
+    font-family: sans-serif;
+    float: right;
+    margin: 10px;
+    cursor: pointer;
+}
+
+
+#button-add:hover {
+    background: linear-gradient(45deg,rgba(145,0,255,1) 49%, rgba(214,0,255,1) 80%);
+}
+
+#button-remove,
+#button-clear {
+    width: 150px;
+    height: auto;
+    background-color: darkslateblue;
+    border: none;
+    border-radius: 10px;
+    color: #FFF;
+    font-size: 15px;
+    padding: 10px;
+    font-family: sans-serif;
+    margin: 10px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+#button-remove:hover,
+#button-clear:hover {
+    opacity: 0.8;
+}
+
+#button-remove {
+    background-color: #FF3D3D;
+}
+
+#button-clear {
+    background-color: #303030;
+}
+
+.list-right-widget {
+    width: 500px;
+    height: auto;
+    margin-bottom: 50px;
+    float: right;
+    box-sizing: border-box;
+    background-color: #EBEBEB;
+    box-shadow: 0 0 100px black;
+    color: gray;
+    font-family: sans-serif; 
+    font-size: 15px;
+}
+
+.h2-item-list {
+    padding: 25px;
+}
+
+.row {
+    width: 500px;
+    height: auto;
+    float: left;
+    box-sizing: border-box;
+    border-top: 1px solid rgba(145,0,255,1);
+    padding: 0 25px 25px 25px;
+    background-color: #D1D1D1;
+    overflow: hidden;
+}
